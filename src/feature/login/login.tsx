@@ -2,13 +2,13 @@ import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router";
 //import { LoginFormValues } from "../../interface.ts/LoginFormValues";
- 
+
 interface LoginFormValues {
   email: string;
   password: string;
   rememberMe: boolean;
 }
- 
+
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
     .email("Email inválido")
@@ -18,31 +18,31 @@ const LoginSchema = Yup.object().shape({
     .required("La contraseña es obligatoria"),
   rememberMe: Yup.boolean(),
 });
- 
+
 const LoginForm: React.FC = () => {
   const initialValues: LoginFormValues = {
     email: "",
     password: "",
     rememberMe: false,
   };
- 
+
   const handleSubmit = (
     values: LoginFormValues,
     { setSubmitting }: FormikHelpers<LoginFormValues>
   ): void => {
-    //console.log("Valores del formulario:", values);
+    console.log("Valores del formulario:", values);
     setTimeout(() => {
       setSubmitting(false);
     }, 500);
   };
- 
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
           Iniciar Sesión
         </h2>
- 
+
         <Formik
           initialValues={initialValues}
           validationSchema={LoginSchema}
@@ -61,11 +61,10 @@ const LoginForm: React.FC = () => {
                   id="email"
                   name="email"
                   type="email"
-                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.email && touched.email
+                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.email && touched.email
                       ? "border-red-500"
                       : "border-gray-300"
-                  }`}
+                    }`}
                   placeholder="ejemplo@correo.com"
                 />
                 <ErrorMessage
@@ -74,7 +73,7 @@ const LoginForm: React.FC = () => {
                   className="mt-1 text-sm text-red-600"
                 />
               </div>
- 
+
               <div>
                 <label
                   htmlFor="password"
@@ -86,11 +85,10 @@ const LoginForm: React.FC = () => {
                   id="password"
                   name="password"
                   type="password"
-                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.password && touched.password
+                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.password && touched.password
                       ? "border-red-500"
                       : "border-gray-300"
-                  }`}
+                    }`}
                 />
                 <ErrorMessage
                   name="password"
@@ -98,7 +96,7 @@ const LoginForm: React.FC = () => {
                   className="mt-1 text-sm text-red-600"
                 />
               </div>
- 
+
               <div className="flex items-center">
                 <Field
                   id="rememberMe"
@@ -113,7 +111,7 @@ const LoginForm: React.FC = () => {
                   Recordarme
                 </label>
               </div>
- 
+
               <div>
                 <button
                   type="submit"
@@ -123,7 +121,7 @@ const LoginForm: React.FC = () => {
                   {isSubmitting ? "Iniciando sesión..." : "Iniciar Sesión"}
                 </button>
               </div>
- 
+
               <div className="text-center">
                 <Link to="/reset-password" className="text-sm text-[#3598DB]">
                   ¿Olvidaste tu contraseña?
@@ -132,7 +130,7 @@ const LoginForm: React.FC = () => {
             </Form>
           )}
         </Formik>
- 
+
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
             ¿No tienes una cuenta?{" "}
@@ -145,5 +143,5 @@ const LoginForm: React.FC = () => {
     </div>
   );
 };
- 
+
 export default LoginForm;

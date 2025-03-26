@@ -47,7 +47,7 @@ export const postTranferencia = async (transeferencia: Omit<Transferencia, "id">
 
 export const deleteTransferencia = async (id: number) => {
     try {
-        const response = await fetch(
+     await fetch(
             "http://localhost:8090/api/transeferencia/delete/" + id,
             {
                 method: "DELETE",
