@@ -1,9 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import { describe, it, expect, vi, Mock, beforeEach } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { MemoryRouter } from 'react-router';
 import { AppRouter } from "../../src/Routes/Route";
 import "@testing-library/jest-dom";
-import React, { useState } from "react";
 
 // Mock de React
 

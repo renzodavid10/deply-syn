@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import LoginForm from "../feature/login/login";
 import { RegisterPage } from "../feature/register/registerPage";
 import NotFoundPage from "../feature/noFound/nofound";
@@ -10,7 +10,7 @@ import { PrivateRouter } from "./PrivateRouter";
 
 export const AppRouter = () => {
 
-    const [isAuthenticated, setIsAuthenticated] = useState(true)
+    const [isAuthenticated] = useState(true)
     return (
        /*  <BrowserRouter> */
             <Routes>

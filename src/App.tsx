@@ -7,9 +7,9 @@ import { Card } from './components/molecules/card/card'
 import { Movimientos } from './components/movimientos'
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0)
 
-  const[movemnts,setMovemnts]= useState<Movimientos[]>([
+  const[movemnts]= useState<Movimientos[]>([
     {
       type: 'Nomina',
       numero: '18/03/2025',

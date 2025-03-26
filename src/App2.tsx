@@ -6,11 +6,11 @@ import './App.css'
 import toast from "react-hot-toast";
 import { sleep } from "./utils/sleep";
 import { Pencil, Trash, X } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Transferencia } from "./interface.ts/transferencia";
 import { deleteTransferencia, getTranferencia, postTranferencia, updateTransferencia } from "./lib/transferencia/getTranferencia";
 import { useAppDispatch, useAppSelector } from "./store/storeRedux";
-import { Movimientos } from './components/movimientos';
+
 import { onAddTransferencia, onError, onRemoveTodo, onStartTranferenciaLoading, onTransferenciaLoaded, onUpdateTransferencia } from "./store/movimientos/movimientosSlice";
 
 interface FormValues {
@@ -98,6 +98,7 @@ const App2 = () => {
             monto: Number(values.amount)
         };
         setTransf(nuevaTransferencia);
+        setIdFinal(Number((movimientos[movimientos.length - 1].id) + 1))
 
         toast.promise(sleep(1500), {
             loading: 'Realizando Transferencia',
@@ -228,7 +229,7 @@ const App2 = () => {
                             <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-900" htmlFor='remember'>Guardar como beneficiario frecuente</label>
                         </div>
                         <div className="mb-4">
-                            <button onClick={(e) => {
+                            <button onClick={() => {
 
                             }} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Realizar Transferencia</button>
 
