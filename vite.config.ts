@@ -7,7 +7,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss(), tsconfigPaths()],
-  base: "/deply-syn/",
+  base: "https://renzodavid10.github.io/deply-syn/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
