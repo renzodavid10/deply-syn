@@ -14,7 +14,7 @@ import { BrowserRouter } from 'react-router'
 createRoot(document.getElementById('root')!).render(
   <>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename='/deply-syn/'>
         <AppRouter />
       </BrowserRouter>
       <Toaster />
